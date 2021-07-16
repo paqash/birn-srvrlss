@@ -10,16 +10,19 @@
     <h1>Šta je ono Denza rekao na tv-u?</h1>
     <button id="fetch-btn">Saznaj</button>
     <p id="response-output"></p>
+    <img id="denza" src="data:," alt/>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const fetchBtn = document.getElementById('fetch-btn')
-        const responseText = document.getElementById('response-output')
+        const fetchBtn = document.getElementById('fetch-btn');
+        const responseText = document.getElementById('response-output');
+        const denza = document.getElementById('denza');
 
         fetchBtn.addEventListener('click', async () => {
           const response = await fetch('/.netlify/functions/auta');
           const txt = await response.text();
           responseText.innerText = txt;
+          denza.src = 'https://i.ytimg.com/vi/rBSKr7XbLjs/maxresdefault.jpg';
         })
       })
     </script>
