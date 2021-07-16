@@ -9,7 +9,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ntl dev",
+    "deploy": "ntl deploy --prod"
   },
   "repository": {
     "type": "git",
