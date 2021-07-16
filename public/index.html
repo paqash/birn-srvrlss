@@ -4,20 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jamstack Explorers - Up and Running with Serverless Functions</title>
+    <title>Denza</title>
   </head>
   <body>
-    <h1>Up and Running with Serverless Functions</h1>
-    <button id="fetch-btn">Fetch</button>
-    <p id="response-output">Response Placeholder</p>
+    <h1>Šta je ono Denza rekao na tv-u?</h1>
+    <button id="fetch-btn">Saznaj</button>
+    <p id="response-output"></p>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const fetchBtn = document.getElementById('fetch-btn')
         const responseText = document.getElementById('response-output')
 
-        fetchBtn.addEventListener('click', () => {
-          responseText.innerText = 'Static Text Replacement'
+        fetchBtn.addEventListener('click', async () => {
+          const response = await fetch('/.netlify/functions/auta');
+          const txt = await response.text();
+          responseText.innerText = txt;
         })
       })
     </script>
